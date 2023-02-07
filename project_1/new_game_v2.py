@@ -1,16 +1,15 @@
 """Guess the number
 The computer makes a guess and guesses the number itself"""
-
 import numpy as np
 
-def random_predict(number:int=1) -> int:
+def random_predict(number:int = np.random.randint(1, 101)) -> int:
     """Randomly guess the number
 
     Args:
         number (int, optional): The hidden number. Defaults to 1.
 
     Returns:
-        int: The number of attempts
+        int: The number of attempts.
     """
     count = 0
     min = 0
@@ -23,16 +22,13 @@ def random_predict(number:int=1) -> int:
        if predict_number > number:
            max = predict_number - 1
            predict_number = (max + min) // 2
-           print("The number must be less!")
        elif predict_number < number:
            min = predict_number + 1
            predict_number = (max + min) // 2
-           print("The number must be greater!")
        else:
-           print(f" You guessed the number! This number is {number} in {count} attempts")
            break # The game is over. Exit from the loop
-    return(count)
-print(f"The number of attempts is {random_predict()}")
+    return count
+
        
 
 def score_game(random_predict) -> int:
@@ -55,7 +51,6 @@ def score_game(random_predict) -> int:
        
     print(f"Your algorithm guesses the number in avarage for: {score} attempts")
     return score
-
 score_game(random_predict)
 
 #RUN

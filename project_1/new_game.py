@@ -1,17 +1,24 @@
+"""Guess the number
+The computer makes a guess and guesses the number itself"""
 import numpy as np
 
-number = np.random.randint(1, 101) #makes a number
+def random_predict(number:int=1) -> int:
+    """Randomly guess the number
 
-count = 0 #number of attempts
-mim = 1
-max = 100
-while True:
-    count += 1
-    predict_number = int(input("Guess the number from 1 to 100: "))
-    if predict_number > number:
-        print("The number must be less!")
-    elif predict_number < number:
-        print("The number must be greater!")
-    else:
-        print(f" You guessed the number! This number is {number} in {count} attempts")
-        break # The game is over. Exit from the loop
+    Args:
+        number (int, optional): The hidden number. Defaults to 1.
+
+    Returns:
+        int: The number of attempts.
+    """
+    
+    count = 0
+    
+    while True:
+        count += 1
+        predict_number = np.random.randint(1,101)
+        if number == predict_number:
+            break # exit the loop if you guessed right
+    return(count)
+print(f"The number of attempts is {random_predict()}")
+
