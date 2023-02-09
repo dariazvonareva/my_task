@@ -12,19 +12,19 @@ def random_predict(number:int = np.random.randint(1, 101)) -> int:
         int: The number of attempts.
     """
     count = 0
-    min = 0
-    max = 100
+    min_value = 0
+    max_value = 100
     predict_number = np.random.randint(1,101)
     
     while True:
        count += 1
        
        if predict_number > number:
-           max = predict_number - 1
-           predict_number = (max + min) // 2
+           max_value = predict_number - 1
+           predict_number = (max_value + min_value) // 2
        elif predict_number < number:
-           min = predict_number + 1
-           predict_number = (max + min) // 2
+           min_value = predict_number + 1
+           predict_number = (max_value + min_value) // 2
        else:
            break # The game is over. Exit from the loop
     return count
